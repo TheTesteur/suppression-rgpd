@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression de Données Personnelles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Demande de Suppression de Données</h1>
+        <p>Soumettez une URL contenant vos données personnelles à supprimer :</p>
+        <form id="suppressionForm">
+            <input type="url" id="url" placeholder="https://exemple.com/page" required>
+            <textarea id="details" placeholder="Détails supplémentaires (facultatif)"></textarea>
+            <button type="submit">Envoyer la demande</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+        document.getElementById("suppressionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let url = document.getElementById("url").value;
+            if(url.trim() === "") {
+                document.getElementById("message").innerText = "Veuillez entrer une URL valide.";
+                return;
+            }
+            document.getElementById("message").innerText = "Votre demande a été envoyée avec succès !";
+            document.getElementById("suppressionForm").reset();
+        });
+    </script>
+</body>
+</html>
